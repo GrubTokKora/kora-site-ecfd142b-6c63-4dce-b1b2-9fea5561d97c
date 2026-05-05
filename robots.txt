@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://staging.kora-ecfd142b-6c63-4dce-b1b2-9fea5561d97c.pages.dev/sitemap.xml
+
+Sitemap: https://primepowerdevices.com/sitemap.xml
