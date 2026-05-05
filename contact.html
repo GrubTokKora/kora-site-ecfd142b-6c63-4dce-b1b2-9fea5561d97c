@@ -49,6 +49,7 @@
     "url": "https://primepowerdevices.com/"
   }
   </script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -85,26 +86,35 @@
     <!-- Contact Form -->
     <section class="py-16 bg-white">
       <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <form id="contact-form" class="space-y-6 reveal" onsubmit="handleFormSubmit(event, 'contact-form')">
+        <form id="contact-form" class="space-y-6 reveal" onsubmit="handleFormSubmit(event, 'contact-form')" novalidate>
+          <p id="contact-form-message" class="text-sm text-center min-h-[1.25rem]" role="status" aria-live="polite"></p>
           <div>
-            <input type="text" placeholder="Enter your name" required
+            <label for="contact-name" class="sr-only">Name</label>
+            <input id="contact-name" name="name" type="text" placeholder="Enter your name" required autocomplete="name"
               class="w-full px-5 py-4 border-b-2 border-gray-200 bg-transparent focus:outline-none focus:border-brand-blue transition-colors text-gray-800 placeholder-gray-400">
           </div>
           <div>
-            <input type="tel" placeholder="Enter your mobile no" required
+            <label for="contact-phone" class="sr-only">Mobile number</label>
+            <input id="contact-phone" name="phone" type="tel" placeholder="Enter your mobile no" required
+              autocomplete="tel"
               class="w-full px-5 py-4 border-b-2 border-gray-200 bg-transparent focus:outline-none focus:border-brand-blue transition-colors text-gray-800 placeholder-gray-400">
           </div>
           <div>
-            <input type="email" placeholder="Enter your Mail" required
+            <label for="contact-email" class="sr-only">Email</label>
+            <input id="contact-email" name="email" type="email" placeholder="Enter your Mail" required
+              autocomplete="email"
               class="w-full px-5 py-4 border-b-2 border-gray-200 bg-transparent focus:outline-none focus:border-brand-blue transition-colors text-gray-800 placeholder-gray-400">
           </div>
           <div>
-            <input type="text" placeholder="Enter your Query" required
+            <label for="contact-query" class="sr-only">Your query</label>
+            <input id="contact-query" name="query" type="text" placeholder="Enter your Query" required
+              autocomplete="off"
               class="w-full px-5 py-4 border-b-2 border-gray-200 bg-transparent focus:outline-none focus:border-brand-blue transition-colors text-gray-800 placeholder-gray-400">
           </div>
+          <div id="contact-recaptcha" class="flex justify-center"></div>
           <div class="pt-4 text-center">
-            <button type="submit"
-              class="btn-shine px-12 py-4 bg-gray-900 text-white font-semibold rounded-full hover:bg-gray-800 transition-colors shadow-lg">
+            <button type="submit" id="contact-submit-btn"
+              class="btn-shine px-12 py-4 bg-gray-900 text-white font-semibold rounded-full hover:bg-gray-800 transition-colors shadow-lg disabled:opacity-60 disabled:cursor-not-allowed">
               SUBMIT
             </button>
           </div>

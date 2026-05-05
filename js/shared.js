@@ -57,12 +57,14 @@ function getFooter() {
         <div class="w-16 h-1 bg-red-600 mx-auto mb-8 reveal"></div>
         
         <p class="text-gray-600 mb-8 reveal">Subscribe for latest news</p>
-        <form class="max-w-xl mx-auto flex gap-2 reveal" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
-          <input type="email" placeholder="Enter your mail" class="flex-1 px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-800 focus:border-transparent transition-all" required>
-          <button type="submit" class="px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors flex items-center gap-2">
+        <form id="newsletter-form" class="max-w-xl mx-auto flex gap-2 reveal">
+          <label for="newsletter-email" class="sr-only">Email</label>
+          <input id="newsletter-email" name="newsletter-email" type="email" placeholder="Enter your mail" class="flex-1 px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-800 focus:border-transparent transition-all" required>
+          <button id="newsletter-submit-btn" type="submit" class="px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors flex items-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
           </button>
         </form>
+        <p id="newsletter-message" class="mt-3 text-sm text-gray-600 min-h-[1.25rem]" role="status" aria-live="polite"></p>
       </div>
     </section>
 
