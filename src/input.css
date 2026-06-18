@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@source "../**/*.html";
+@source "../js/**/*.js";
+
+@theme {
+  --color-brand-blue: #1e4d8c;
+  --color-brand-dark: #1a1a1a;
+  --color-brand-red: #c41e3a;
+  --color-brand-light: #f8f9fa;
+}
