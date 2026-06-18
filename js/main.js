@@ -156,23 +156,72 @@ function initAccordion() {
 
 /** reCAPTCHA widget id for contact page (explicit render). */
 let koraContactRecaptchaWidgetId = null;
+let koraContactRecaptchaLoading = false;
 
-function initContactRecaptcha() {
+function loadContactRecaptchaScript() {
+  const cfg = window.KORA_SITE_CONFIG || {};
+  if (!cfg.recaptchaSiteKey) return Promise.resolve(false);
+  if (typeof grecaptcha !== 'undefined' && grecaptcha.render) return Promise.resolve(true);
+
+  if (koraContactRecaptchaLoading) {
+    return new Promise(function (resolve) {
+      const check = setInterval(function () {
+        if (typeof grecaptcha !== 'undefined' && grecaptcha.render) {
+          clearInterval(check);
+          resolve(true);
+        }
+      }, 100);
+      setTimeout(function () {
+        clearInterval(check);
+        resolve(typeof grecaptcha !== 'undefined' && !!grecaptcha.render);
+      }, 8000);
+    });
+  }
+
+  koraContactRecaptchaLoading = true;
+  return new Promise(function (resolve) {
+    const script = document.createElement('script');
+    script.src = 'https://www.google.com/recaptcha/api.js?render=explicit';
+    script.async = true;
+    script.defer = true;
+    script.onload = function () { resolve(true); };
+    script.onerror = function () { resolve(false); };
+    document.head.appendChild(script);
+  });
+}
+
+async function renderContactRecaptcha(showErrors) {
   const el = document.getElementById('contact-recaptcha');
   const cfg = window.KORA_SITE_CONFIG || {};
-  if (!el || !cfg.recaptchaSiteKey) return;
-
-  function tryRender(attempts) {
-    if (typeof grecaptcha !== 'undefined' && grecaptcha.render) {
-      koraContactRecaptchaWidgetId = grecaptcha.render('contact-recaptcha', {
-        sitekey: cfg.recaptchaSiteKey
-      });
-      return;
-    }
-    if (attempts > 80) return;
-    setTimeout(function () { tryRender(attempts + 1); }, 100);
+  if (!el || !cfg.recaptchaSiteKey) {
+    if (showErrors) setContactFormMessage('Form temporarily unavailable.', true);
+    return false;
   }
-  tryRender(0);
+
+  const ready = await loadContactRecaptchaScript();
+  if (!ready || typeof grecaptcha === 'undefined') {
+    if (showErrors) setContactFormMessage('Security check loading. Please try again.', true);
+    return false;
+  }
+
+  if (koraContactRecaptchaWidgetId == null) {
+    koraContactRecaptchaWidgetId = grecaptcha.render('contact-recaptcha', {
+      sitekey: cfg.recaptchaSiteKey
+    });
+  }
+  return true;
+}
+
+function initContactRecaptcha() {
+  const form = document.getElementById('contact-form');
+  if (!form || !document.getElementById('contact-recaptcha')) return;
+
+  function preloadRecaptcha() {
+    renderContactRecaptcha(false);
+  }
+
+  form.addEventListener('focusin', preloadRecaptcha, { once: true });
+  form.addEventListener('pointerdown', preloadRecaptcha, { once: true });
 }
 
 function setContactFormMessage(text, isError) {
@@ -310,6 +359,9 @@ async function handleFormSubmit(event, formId) {
     setContactFormMessage('Form temporarily unavailable.', true);
     return;
   }
+
+  const recaptchaReady = await renderContactRecaptcha(true);
+  if (!recaptchaReady) return;
 
   const captchaToken =
     typeof grecaptcha !== 'undefined' && koraContactRecaptchaWidgetId != null
