@@ -12,7 +12,7 @@ window.KORA_SITE_CONFIG = window.KORA_SITE_CONFIG || {
 // Inject Header and Footer
 document.addEventListener('DOMContentLoaded', function () {
   const headerPlaceholder = document.getElementById('header-placeholder');
-  const footerPlaceholder = document.getElementById('footer-placeholder');
+  const footerPlaceholder = document.getElementById('site-footer');
 
   if (headerPlaceholder && typeof getHeader === 'function') {
     headerPlaceholder.innerHTML = getHeader();
