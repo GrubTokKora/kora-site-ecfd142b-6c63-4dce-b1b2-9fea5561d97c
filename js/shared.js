@@ -53,10 +53,9 @@ function getFooter() {
     <!-- Contact CTA Section -->
     <section class="bg-slate-50 py-16">
       <div class="max-w-4xl mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4 reveal">CONTACT US</h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4 reveal">Subscribe for latest news</h2>
         <div class="w-16 h-1 bg-red-600 mx-auto mb-8 reveal"></div>
-        
-        <p class="text-gray-600 mb-8 reveal">Subscribe for latest news</p>
+
         <form id="newsletter-form" class="max-w-xl mx-auto flex gap-2 reveal">
           <label for="newsletter-email" class="sr-only">Email</label>
           <input id="newsletter-email" name="newsletter-email" type="email" placeholder="Enter your mail" class="flex-1 px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-800 focus:border-transparent transition-all" required>
@@ -76,7 +75,6 @@ function getFooter() {
           <nav class="flex items-center gap-6">
             <a href="contact.html" class="text-gray-400 hover:text-white text-sm transition-colors">Contact Us</a>
             <a href="about.html" class="text-gray-400 hover:text-white text-sm transition-colors">About Us</a>
-            <a href="https://primepowerdevices.com/pages/tnc" target="_blank" class="text-gray-400 hover:text-white text-sm transition-colors">Terms & Conditions</a>
           </nav>
         </div>
       </div>
