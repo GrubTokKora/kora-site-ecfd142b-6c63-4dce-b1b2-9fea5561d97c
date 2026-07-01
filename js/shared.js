@@ -5,18 +5,19 @@
 
 function getHeader() {
   return `
-    <!-- Top Bar -->
-    <div class="bg-black text-white text-center py-2 text-sm tracking-wide">
-      <span class="animate-pulse">Made In INDIA 🇮🇳</span>
-    </div>
+    <div id="site-header" class="fixed top-0 w-full z-50 overflow-x-hidden">
+      <!-- Top Bar -->
+      <div class="bg-black text-white text-center py-2 text-sm tracking-wide">
+        <span class="animate-pulse">Made In INDIA 🇮🇳</span>
+      </div>
 
-    <!-- Navigation -->
-    <header id="main-header" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300">
+      <!-- Navigation -->
+      <header id="main-header" class="bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16 lg:h-20">
+        <div class="flex items-center justify-between h-16 lg:h-20 min-w-0">
           <!-- Logo -->
-          <a href="index.html" class="flex items-center gap-2 shrink-0 group">
-            <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/ecfd142b-6c63-4dce-b1b2-9fea5561d97c/311c03ab-5bbb-4b23-9fee-4b0e03864786/1781757336_x9yrsf.jpg" alt="Prime Power Devices" class="h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+          <a href="index.html" class="flex items-center min-w-0 group">
+            <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/ecfd142b-6c63-4dce-b1b2-9fea5561d97c/311c03ab-5bbb-4b23-9fee-4b0e03864786/1781757336_x9yrsf.jpg" alt="Prime Power Devices" class="h-12 lg:h-14 w-auto max-w-[11rem] lg:max-w-none object-contain transition-transform duration-300 group-hover:scale-105">
           </a>
 
           <!-- Desktop Navigation -->
@@ -28,7 +29,7 @@ function getHeader() {
           </nav>
 
           <!-- Mobile Menu Button -->
-          <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-700 hover:text-blue-800 transition-colors" aria-label="Toggle menu">
+          <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-700 hover:text-blue-800 transition-colors shrink-0" aria-label="Toggle menu" aria-expanded="false" type="button">
             <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
           </button>
@@ -45,6 +46,8 @@ function getHeader() {
         </div>
       </div>
     </header>
+    </div>
+    <div class="h-[6.25rem] lg:h-[7.25rem]" aria-hidden="true"></div>
   `;
 }
 

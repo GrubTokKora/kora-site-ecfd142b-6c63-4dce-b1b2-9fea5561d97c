@@ -40,27 +40,35 @@ function initMobileMenu() {
 
   if (!btn || !menu) return;
 
-  btn.addEventListener('click', function () {
-    const isOpen = !menu.classList.contains('hidden');
+  function setMobileMenuOpen(isOpen) {
     if (isOpen) {
-      menu.classList.add('hidden');
-      menu.style.maxHeight = null;
-      iconOpen.classList.remove('hidden');
-      iconClose.classList.add('hidden');
-    } else {
       menu.classList.remove('hidden');
-      menu.style.maxHeight = menu.scrollHeight + 'px';
       iconOpen.classList.add('hidden');
       iconClose.classList.remove('hidden');
+      btn.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('mobile-menu-open');
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      menu.classList.add('hidden');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('mobile-menu-open');
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     }
+  }
+
+  btn.addEventListener('click', function () {
+    const isOpen = !menu.classList.contains('hidden');
+    setMobileMenuOpen(!isOpen);
   });
 
   // Close menu when clicking a link
   menu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      menu.classList.add('hidden');
-      iconOpen.classList.remove('hidden');
-      iconClose.classList.add('hidden');
+      setMobileMenuOpen(false);
     });
   });
 }
