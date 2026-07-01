@@ -16,7 +16,7 @@ function getHeader() {
         <div class="flex items-center justify-between h-16 lg:h-20">
           <!-- Logo -->
           <a href="index.html" class="flex items-center gap-2 shrink-0 group">
-            <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/ecfd142b-6c63-4dce-b1b2-9fea5561d97c/de8c94d8-887e-4625-825f-ec262dbc28df/1777958569_6k3onm.png" alt="Prime Power Devices" class="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+            <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/ecfd142b-6c63-4dce-b1b2-9fea5561d97c/311c03ab-5bbb-4b23-9fee-4b0e03864786/1781757336_x9yrsf.jpg" alt="Prime Power Devices" class="h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
           </a>
 
           <!-- Desktop Navigation -->
