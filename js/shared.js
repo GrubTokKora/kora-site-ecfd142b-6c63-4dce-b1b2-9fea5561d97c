@@ -71,14 +71,50 @@ function getFooter() {
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8 border-t border-gray-800">
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p class="text-gray-400 text-sm">2025 &copy; All Rights Reserved.</p>
-          <nav class="flex items-center gap-6">
-            <a href="contact.html" class="text-gray-400 hover:text-white text-sm transition-colors">Contact Us</a>
-            <a href="about.html" class="text-gray-400 hover:text-white text-sm transition-colors">About Us</a>
-          </nav>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          <!-- About/Logo Column -->
+          <div class="lg:col-span-2">
+            <a href="index.html" class="inline-block mb-4">
+              <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/ecfd142b-6c63-4dce-b1b2-9fea5561d97c/de8c94d8-887e-4625-825f-ec262dbc28df/1777958569_6k3onm.png" alt="Prime Power Devices Logo" class="h-16 w-auto object-contain" loading="lazy">
+            </a>
+            <p class="text-gray-400 text-sm max-w-md">High-performance TO-3, TO-3P, and TO-220 power transistors since 2001.</p>
+          </div>
+
+          <!-- Quick Links Column -->
+          <div>
+            <h3 class="text-lg font-semibold mb-4 tracking-wide">Quick Links</h3>
+            <nav class="space-y-3 text-sm">
+              <a href="index.html" class="block text-gray-400 hover:text-white transition-colors">Home</a>
+              <a href="devices.html" class="block text-gray-400 hover:text-white transition-colors">Devices</a>
+              <a href="about.html" class="block text-gray-400 hover:text-white transition-colors">About Us</a>
+              <a href="contact.html" class="block text-gray-400 hover:text-white transition-colors">Contact Us</a>
+            </nav>
+          </div>
+
+          <!-- Contact/Address Column -->
+          <div>
+            <h3 class="text-lg font-semibold mb-4 tracking-wide">Contact Us</h3>
+            <address class="not-italic text-gray-400 space-y-3 text-sm">
+              <p><strong>M/s PRIME POWER DEVICES</strong><br>
+              FACTORY: 5-91/2/1, Survey No: 75A/2B & 76A/1, Bakaram Village, Moinabad Mandal, R R Dist<br>
+              HYDERABAD</p>
+              <p><a href="mailto:info@primepowerdevices.com" class="hover:text-white transition-colors inline-flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                info@primepowerdevices.com
+              </a></p>
+              <p><a href="tel:+919848033031" class="hover:text-white transition-colors inline-flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                +91 9848033031
+              </a></p>
+            </address>
+          </div>
+
+        </div>
+        <div class="mt-12 border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+          <p>&copy; ${new Date().getFullYear()} Prime Power Devices. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
