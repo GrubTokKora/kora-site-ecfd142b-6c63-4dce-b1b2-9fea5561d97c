@@ -14,10 +14,10 @@ function getHeader() {
       <!-- Navigation -->
       <header id="main-header" class="bg-white shadow-sm transition-all duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16 lg:h-20 min-w-0">
+        <div class="flex items-center justify-between h-20 lg:h-[6rem] min-w-0">
           <!-- Logo -->
           <a href="index.html" class="flex items-center min-w-0 group">
-            <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/ecfd142b-6c63-4dce-b1b2-9fea5561d97c/311c03ab-5bbb-4b23-9fee-4b0e03864786/1781757336_x9yrsf.jpg" alt="Prime Power Devices" class="h-14 lg:h-16 w-auto max-w-[13rem] lg:max-w-none object-contain transition-transform duration-300 group-hover:scale-105">
+            <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/ecfd142b-6c63-4dce-b1b2-9fea5561d97c/311c03ab-5bbb-4b23-9fee-4b0e03864786/1781757336_x9yrsf.jpg" alt="Prime Power Devices" class="h-16 lg:h-20 w-auto max-w-[13rem] lg:max-w-none object-contain transition-transform duration-300 group-hover:scale-105">
           </a>
 
           <!-- Desktop Navigation -->
@@ -47,7 +47,7 @@ function getHeader() {
       </div>
     </header>
     </div>
-    <div class="h-[6.25rem] lg:h-[7.25rem]" aria-hidden="true"></div>
+    <div class="h-[7.25rem] lg:h-[8.25rem]" aria-hidden="true"></div>
   `;
 }
 
