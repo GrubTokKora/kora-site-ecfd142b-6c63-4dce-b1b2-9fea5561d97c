@@ -118,7 +118,7 @@ function getFooter() {
 
         </div>
         <div class="mt-12 border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-          <p>&copy; ${new Date().getFullYear()} Prime Power Devices. All Rights Reserved.</p>
+          <p>&copy; 2026 Prime Power Devices. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
