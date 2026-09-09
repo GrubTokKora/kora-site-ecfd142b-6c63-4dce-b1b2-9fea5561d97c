@@ -1,4 +1,4 @@
-# Site index · format 1
+# Site index · format 2
 Structure and the names of what each page offers. Values that change often — prices, hours, phone,
 address — and body copy are deliberately not recorded here; read the page itself for those.
 
@@ -54,6 +54,17 @@ sections:
 - "Authorized Distributors" — the distributor network by city: M/S EASTERN ELECTRONICS, M/S S R ELECTRONICS, M/S BHAGAWATI INTERNATIONAL, M/S AKSHAY ELECTRONICS, M/S SIRI RAM & SONS
 also: Each distributor entry carries its own address and phone number, so a change to distributor details is five separate edits on this page and none of them is shared with the company's own address above.
 
+## support files
+Files that are not pages. A line marked [content] holds words or data a visitor reads, so a
+change to the site's content can land there; the rest only make the site work or look right.
+- `robots.txt` — crawler rules and the sitemap link — derived from the site by the deploy, not written by hand
+- `sitemap.xml` — the list of page URLs — derived from the site by the deploy, not written by hand
+- `css/animations.css` — scroll-reveal animation, no content of its own
+- `js/main.js` — page behaviour and the site's API configuration
+- `js/shared.js` — THE HEADER AND FOOTER MARKUP for every page, written as a JS template  [content]
+
 ## shared (every page)
-The header, navigation, mobile menu and footer are propagated from index.html to every other page by
-`shell_propagation`. A change to any of them is made on index.html alone and copied automatically.
+The header, navigation, mobile menu and footer are NOT in the pages. They are rendered at
+load by `js/shared.js`, which is where every change to the shared chrome has to be made. Editing a
+page's markup to change the header will appear to do nothing, because there is no header in
+it to change.
